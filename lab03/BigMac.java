@@ -21,8 +21,8 @@ public class BigMac {
         System.out.print("Enter the percent tax as a whole number (xx): ");
         double taxRate=myScanner.nextDouble();
         taxRate/=100;   //convert percentage to proportion
-        
-        double cost$;
+    
+       double cost$;
         int dollars, dimes, pennies;    //variables for storing digits of cost$
         cost$=nBigMacs*bigMac$*(1+taxRate);
         dollars=(int)cost$;
