@@ -70,8 +70,7 @@ public class Cookies{
                 if( perPerson >= cookies ) { //check if there are enough cookies per person
                     if( nCookies%people==0 ) {//check if number of cookies is divisible by number of people
                         System.out.println("You will have enough cookies and they will divide evenly.");
-                    } else {
-                        System.out.println("You will have enough cookies, but they won't divide evenly.");
+                    } else { System.out.println("You will have enough cookies, but they won't divide evenly.");
                     }   //end else statement
                 }   //end outer if statement
                 else{       //tell user if there are not enough cookies per person
