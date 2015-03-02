@@ -20,13 +20,12 @@ public class RunFactorial{
             fact=scan.nextInt();    //assign variable fact
         } while(fact<9||fact>16);   //repeat loop until integer between 9 and 16 is entered
         
-        int ans=fact;   //declare variable ans
+        double ans=fact;   //declare variable ans
         while(fact>1){  //compute factorial
             fact--;
             ans=ans*fact;   //decrement fact, multiply by ans
-            System.out.print(ans+" "+fact+" "); //something is going wrong when values 13 or higher are entered
         }//end while
-        System.out.println("Factorial = "+ans); //output factorial of user input
+        System.out.printf("Factorial = %.0f \n",ans); //output factorial of user input
         
     }//end main method
     
