@@ -14,8 +14,11 @@ public class Multiply{
         
         int width1,length1,width2,length2;
         
+        //this do-while loop asks for user input of the number of rows and columns in each of two matrices. 
+        //the outer loop makes sure the inner matrix dimensions agree, and asks user to input all parameters again if they do not
+        //the inner loop makes sure each input is a positive integer
         do{
-        do{                                                            
+        do{     //ask for width1                                                          
             System.out.println("Enter number of columns in matrix A");
             while(!scan.hasNextInt()){                                 
                 System.out.println("You must enter only integers. Please try again.");
@@ -27,7 +30,7 @@ public class Multiply{
             }//else if
         }while(width1<0);
         
-        System.out.println("Enter number of rows in Matrix A");
+        System.out.println("Enter number of rows in Matrix A");     //ask for height1
         do{                                                            
             while(!scan.hasNextInt()){                                 
                 System.out.println("You must enter only integers. Please try again.");
@@ -39,7 +42,7 @@ public class Multiply{
             }//else if
         }while(length1<0);
         
-        System.out.println("Enter number of columns in Matrix B");
+        System.out.println("Enter number of columns in Matrix B");      //ask for width2
         do{                                                            
             while(!scan.hasNextInt()){                                 
                 System.out.println("You must enter only integers. Please try again.");
@@ -51,7 +54,7 @@ public class Multiply{
             }//else if
         }while(width2<0);
         
-        System.out.println("Enter number of rows in Matrix B");
+        System.out.println("Enter number of rows in Matrix B");     //ask for height2
         do{                                                            
             while(!scan.hasNextInt()){                                 
                 System.out.println("You must enter only integers. Please try again.");
@@ -68,23 +71,25 @@ public class Multiply{
         }while(length2!=width1);
         
         
-        int[][] matrix1=randomMatrix(width1,length1);
+        int[][] matrix1=randomMatrix(width1,length1);       //generate random matrix with dimensions of matrix 1
         System.out.println("Matrix A is:");
-        printMatrix(matrix1);
+        printMatrix(matrix1);                               //print matrix
         
-        int[][] matrix2=randomMatrix(width2,length2);
+        int[][] matrix2=randomMatrix(width2,length2);       //generate random matrix with dimensions of matrix 2
         System.out.println("Matrix B is:");
-        printMatrix(matrix2);
+        printMatrix(matrix2);                               //print matrix
         
-        int[][] product=matrixMultiply(matrix1,matrix2);
+        int[][] product=matrixMultiply(matrix1,matrix2);    //find product of A*B
         System.out.println("The product of A*B is:");
-        printMatrix(product);
+        printMatrix(product);                               //print product
         
     }//main method
     
+    
+    //this method outputs a random matrix based on input dimensions
     public static int[][] randomMatrix(int cols,int rows){
         Random rand=new Random();
-        int[][] matrix=new int[rows][];
+        int[][] matrix=new int[rows][];             
         for(int r=0;r<rows;r++){
             matrix[r]=new int[cols];
             for(int c=0;c<cols;c++){
@@ -94,6 +99,7 @@ public class Multiply{
         return matrix;
     }//randomMatrix
     
+    //print out row-major matrix based on input array
     public static void printMatrix(int[][] array){
         int rows,cols;
         rows=array.length;
@@ -101,6 +107,7 @@ public class Multiply{
             for(int i=0;i<rows;i++){
                 System.out.printf("[   ");
                for(int j=0;j<cols;j++){
+                   //formatting
                    if(array[i][j]<0&&array[i][j]>-10||array[i][j]>9&&array[i][j]<100){
                        System.out.printf("\b%d     ",array[i][j]);
                     }else if(array[i][j]>99||array[i][j]<-9&&array[i][j]>-100){
@@ -115,12 +122,13 @@ public class Multiply{
             }//outer for
     }//printMatrix
     
+    //outputs product matrix from input of two matrices with matching inner dimensions
     public static int[][] matrixMultiply(int[][] A, int[][] B){
         int rows1=A.length;
         int cols1=A[0].length;
         int rows2=B.length;
         int cols2=B[0].length;
-        if(cols1!=rows2){
+        if(cols1!=rows2){           //if dimensions don't match, print error
             System.out.println("Matrix dimensions do not match. Cannot Multiply.");
             return null;
         }//end if
